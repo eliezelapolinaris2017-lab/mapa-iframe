@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Oasis Map CRM</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">MAP</div>
+      <div>
+        <div class="brandTitle">Oasis Map CRM</div>
+        <div class="brandSub">Ubicaciones recurrentes · Operación 2026</div>
+      </div>
+    </div>
+
+    <div class="topActions">
+      <button class="btn ghost" id="btnExport" type="button">Export</button>
+      <button class="btn danger" id="btnClear" type="button">Vaciar</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="gridCards">
+      <article class="card kpi kpi-a">
+        <div class="kpiLabel">Clientes guardados</div>
+        <div class="kpiValue" id="kpiCount">0</div>
+        <div class="kpiHint">Local en el dispositivo</div>
+      </article>
+      <article class="card kpi kpi-b">
+        <div class="kpiLabel">Vista</div>
+        <div class="kpiValue" id="kpiView">Mapa</div>
+        <div class="kpiHint">Embebido dentro de la app</div>
+      </article>
+      <article class="card kpi kpi-c">
+        <div class="kpiLabel">Acción</div>
+        <div class="kpiValue">Pin</div>
+        <div class="kpiHint">Guardar y volver cuando quieras</div>
+      </article>
+    </section>
+
+    <section class="grid2" style="margin-top:12px">
+      <section class="card section">
+        <div class="sectionHead">
+          <div class="sectionTitle">Nuevo cliente</div>
+          <div class="pill">GPS + manual</div>
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label>Nombre</label>
+            <input class="input" id="name" placeholder="Ej: Marta - 2 unidades" />
+          </div>
+          <div class="field">
+            <label>Etiqueta</label>
+            <input class="input" id="tag" placeholder="VIP / Recurrente / Garantía" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Nota</label>
+          <input class="input" id="note" placeholder="Acceso, portón, horario, etc." />
+        </div>
+
+        <div class="grid2">
+          <div class="field">
+            <label>Latitud</label>
+            <input class="input" id="lat" placeholder="18.2208" />
+          </div>
+          <div class="field">
+            <label>Longitud</label>
+            <input class="input" id="lng" placeholder="-66.5901" />
+          </div>
+        </div>
+
+        <div class="rowBtns" style="margin-top:12px">
+          <button class="btn ghost" id="btnGeo" type="button">Usar mi ubicación</button>
+          <button class="btn" id="btnSave" type="button">Guardar</button>
+        </div>
+
+        <div class="hint">Tip: “Usar mi ubicación” es ideal cuando estás en el sitio del cliente.</div>
+      </section>
+
+      <section class="card section mapCard">
+        <div class="sectionHead">
+          <div class="sectionTitle">Mapa</div>
+          <input class="input small" id="search" placeholder="Buscar cliente..." />
+        </div>
+
+        <div class="mapWrap">
+          <iframe id="map" title="Mapa" loading="lazy"></iframe>
+        </div>
+
+        <div class="hint" id="mapHint">Selecciona un cliente para centrar el mapa.</div>
+      </section>
+    </section>
+
+    <section class="card section">
+      <div class="sectionHead">
+        <div class="sectionTitle">Lista</div>
+        <div class="pill">Tap = centrar</div>
+      </div>
+
+      <div class="tableWrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Tag</th>
+              <th>Coordenadas</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <a class="hub-fab" id="hubBackBtn" href="https://eliezelapolinaris2017-lab.github.io/oasis-hub/" title="Volver a Oasis Hub">⟵ Hub</a>
+
+  <script src="app.js"></script>
+</body>
+</html>
